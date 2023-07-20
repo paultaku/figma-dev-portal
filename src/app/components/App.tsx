@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../assets/logo.svg';
 import '../styles/ui.css';
+import { EventType } from '../../shared/event-type';
 
 function App() {
   const textbox = React.useRef<HTMLInputElement>(undefined);
@@ -11,8 +12,9 @@ function App() {
   }, []);
 
   const onCreate = () => {
-    const count = parseInt(textbox.current.value, 10);
-    parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*');
+    parent.postMessage({ pluginMessage: { type: EventType.ListThemeColor } }, '*');
+    // const count = parseInt(textbox.current.value, 10);
+    // parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*');
   };
 
   const onCancel = () => {
